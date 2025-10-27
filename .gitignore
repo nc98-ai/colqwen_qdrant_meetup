@@ -1,2 +1,4 @@
 .env
 .gitignore
+*/qdrant-data/*
+*/pdf_pages_images/*

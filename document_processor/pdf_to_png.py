@@ -2,7 +2,7 @@ from pdf2image import convert_from_path
 import os
 from dotenv import load_dotenv
 
-load_dotenv("colqwen_qdrant_meetup/.env")
+load_dotenv(".env")
 
 PDF_NAME = os.getenv("PDF_NAME")
 DATA_FOLDER_PATH = os.getenv("DATA_FOLDER_PATH")

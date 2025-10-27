@@ -1,0 +1,20 @@
+{
+  "/home/ksa/llm/colqwen_qdrant_meetup/DOCKER/pdf_corpus/id660.pdf": {
+    "mtime": 1753438816.1592736,
+    "size": 731620,
+    "pages": 16,
+    "last_indexed_at": 1761472319.5404413
+  },
+  "/home/ksa/llm/colqwen_qdrant_meetup/DOCKER/pdf_corpus/trunksip.pdf": {
+    "mtime": 1761471451.4977157,
+    "size": 62783,
+    "pages": 2,
+    "last_indexed_at": 1761472364.2820446
+  },
+  "/home/ksa/llm/colqwen_qdrant_meetup/DOCKER/pdf_corpus/Skills4All-PRINCE2_2017_Foundation_Python_Certificate.pdf": {
+    "mtime": 1735523424.4580429,
+    "size": 588628,
+    "pages": 1,
+    "last_indexed_at": 1761472374.8109605
+  }
+}

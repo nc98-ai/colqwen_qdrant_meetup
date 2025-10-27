@@ -3,10 +3,10 @@
 set -e  
 
 
-apt update && apt install -y unzip zip
+sudo apt update && sudo apt install -y unzip zip
 
 
-apt update && apt install -y \
+sudo apt update && sudo apt install -y \
     make build-essential libssl-dev zlib1g-dev \
     libbz2-dev libreadline-dev libsqlite3-dev wget curl llvm \
     libncursesw5-dev xz-utils tk-dev libxml2-dev libxmlsec1-dev \
@@ -21,11 +21,11 @@ echo 'eval "$(pyenv init - bash)"' >> ~/.bashrc
 
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-apt-key del 7fa2af80 || true
+sudo apt-key del 7fa2af80 || true
 wget https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2204/x86_64/cuda-keyring_1.1-1_all.deb
-dpkg -i cuda-keyring_1.1-1_all.deb
-apt-get update
-apt-get -y install cuda-toolkit-12-8
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt-get update
+sudo apt-get -y install cuda-toolkit-12-8
 
 echo 'export PATH=/usr/local/cuda-12.8/bin${PATH:+:${PATH}}' >> ~/.bashrc
 echo 'export LD_LIBRARY_PATH=/usr/local/cuda-12.8/lib64${LD_LIBRARY_PATH:+:${LD_LIBRARY_PATH}}' >> ~/.bashrc

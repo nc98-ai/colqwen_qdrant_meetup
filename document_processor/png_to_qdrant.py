@@ -5,10 +5,14 @@ import torch
 from PIL import Image
 from qdrant_client import QdrantClient, models
 from qdrant_client.models import PointStruct
-from colqwen_qdrant_demo.src.vision_model_loader import get_colqwen_model, get_colqwen_processor, device
+# from colqwen_qdrant_demo.src.vision_model_loader import get_colqwen_model, get_colqwen_processor, device
+
+from src.vision_model_loader import get_colqwen_model, get_colqwen_processor, device
+
 from dotenv import load_dotenv
 
-load_dotenv("colqwen_qdrant_meetup/.env")
+
+load_dotenv(".env")
 
 colqwen_model = get_colqwen_model()
 colqwen_processor = get_colqwen_processor()

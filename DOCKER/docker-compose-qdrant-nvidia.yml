@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.13.3-gpu-nvidia
+    container_name: qdrant-nvidia
+    restart: unless-stopped
+    ports:
+      - "6333:6333"
+      - "6334:6334"
+    volumes:
+      - ./qdrant-data:/qdrant/storage
+    environment:
+      - QDRANT__SERVICE__API_KEY=ma_cle_secrete
+      - TZ=Pacific/Noumea
+    deploy: {}   # conservé vide si vous n'êtes pas en swarm
+    # Alternative plus simple et souvent supportée par docker-compose:
+    gpus: all

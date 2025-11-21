@@ -1,0 +1,150 @@
+2025-11-21 11:07:47,128 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:10:34,482 - pdf_rag_ingest - INFO - Modèles d'embeddings chargés (texte + image)
+2025-11-21 11:10:34,609 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 (clé API fournie)
+2025-11-21 11:10:34,609 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:10:34,609 - pdf_rag_ingest - WARNING - Impossible de recréer la collection (peut déjà exister) : 1 validation error for VectorParams
+size
+  Input should be a valid integer [type=int_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/int_type. Tentative de création simple...
+2025-11-21 11:10:34,610 - pdf_rag_ingest - ERROR - Échec de la création de la collection Qdrant: 1 validation error for VectorParams
+size
+  Input should be a valid integer [type=int_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/int_type
+Traceback (most recent call last):
+  File "/home/ksa/llm/colqwen_qdrant_meetup/test/ingest_pdf_to_qdrant.py", line 190, in create_qdrant_collection
+    "image": rest_models.VectorParams(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/pydantic/main.py", line 253, in __init__
+    validated_self = self.__pydantic_validator__.validate_python(data, self_instance=self)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+pydantic_core._pydantic_core.ValidationError: 1 validation error for VectorParams
+size
+  Input should be a valid integer [type=int_type, input_value=None, input_type=NoneType]
+    For further information visit https://errors.pydantic.dev/2.11/v/int_type
+2025-11-21 11:12:35,595 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:12:42,690 - pdf_rag_ingest - INFO - Modèles d'embeddings chargés (texte + image)
+2025-11-21 11:12:42,690 - pdf_rag_ingest - WARNING - get_sentence_embedding_dimension() a renvoyé None pour le modèle image, calcul de la dimension via un embedding factice...
+2025-11-21 11:12:43,354 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 (clé API fournie)
+2025-11-21 11:12:43,354 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:12:43,356 - pdf_rag_ingest - WARNING - Impossible de recréer la collection (peut déjà exister) : [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016). Tentative de création simple...
+2025-11-21 11:12:43,357 - pdf_rag_ingest - ERROR - Échec de la création de la collection Qdrant: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016)
+Traceback (most recent call last):
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_transports/default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_transports/default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_sync/connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 101, in handle_request
+    raise exc
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 78, in handle_request
+    stream = self._connect(request)
+             ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_sync/connection.py", line 156, in _connect
+    stream = stream.start_tls(**kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_backends/sync.py", line 154, in start_tls
+    with map_exceptions(exc_map):
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpcore/_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ConnectError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 129, in send_inner
+    response = self._client.send(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_transports/default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/httpx/_transports/default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ConnectError: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/ksa/llm/colqwen_qdrant_meetup/test/ingest_pdf_to_qdrant.py", line 172, in create_qdrant_collection
+    client.create_collection(
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/qdrant_client.py", line 2386, in create_collection
+    return self._client.create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/qdrant_remote.py", line 2815, in create_collection
+    result: Optional[bool] = self.http.collections_api.create_collection(
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api/collections_api.py", line 294, in create_collection
+    return self._build_for_create_collection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api/collections_api.py", line 96, in _build_for_create_collection
+    return self.api_client.request(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 90, in request
+    return self.send(request, type_)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 107, in send
+    response = self.middleware(request, self.send_inner)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 240, in __call__
+    return call_next(request)
+           ^^^^^^^^^^^^^^^^^^
+  File "/home/ksa/.conda/envs/colqwen_qdrant_meetup/lib/python3.11/site-packages/qdrant_client/http/api_client.py", line 131, in send_inner
+    raise ResponseHandlingException(e)
+qdrant_client.http.exceptions.ResponseHandlingException: [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016)
+2025-11-21 11:19:16,602 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:19:23,502 - pdf_rag_ingest - INFO - Modèles d'embeddings chargés (texte + image)
+2025-11-21 11:19:23,502 - pdf_rag_ingest - WARNING - get_sentence_embedding_dimension() a renvoyé None pour le modèle image, calcul de la dimension via un embedding factice...
+2025-11-21 11:19:23,928 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 via HTTP (clé API fournie)
+2025-11-21 11:19:23,929 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:19:24,161 - pdf_rag_ingest - INFO - Collection 'pdf_multimodal' recréée avec succès.
+2025-11-21 11:19:24,161 - pdf_rag_ingest - INFO - Ouverture du PDF: DOCKER/Conditions Spécifiques du contrat d'abonnement  au service Trunk Sip_tagged.pdf
+2025-11-21 11:19:24,235 - pdf_rag_ingest - INFO - Extraction terminée, 2 pages traitées.
+2025-11-21 11:27:45,055 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:27:49,894 - pdf_rag_ingest - INFO - Modèle d'embeddings texte chargé
+2025-11-21 11:27:50,024 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 via HTTP (clé API fournie)
+2025-11-21 11:27:50,024 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:27:50,354 - pdf_rag_ingest - INFO - Collection 'pdf_multimodal' recréée avec succès.
+2025-11-21 11:27:50,354 - pdf_rag_ingest - INFO - Ouverture du PDF: DOCKER/Conditions Spécifiques du contrat d'abonnement  au service Trunk Sip_tagged.pdf
+2025-11-21 11:27:50,426 - pdf_rag_ingest - INFO - Extraction terminée, 2 pages traitées.
+2025-11-21 11:37:11,196 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:37:16,044 - pdf_rag_ingest - INFO - Modèle d'embeddings texte chargé
+2025-11-21 11:37:16,246 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 via HTTP (clé API fournie)
+2025-11-21 11:37:16,247 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:37:16,671 - pdf_rag_ingest - INFO - Collection 'pdf_multimodal' recréée avec succès.
+2025-11-21 11:37:16,672 - pdf_rag_ingest - INFO - Ouverture du PDF: DOCKER/Conditions Spécifiques du contrat d'abonnement  au service Trunk Sip_tagged.pdf
+2025-11-21 11:37:16,739 - pdf_rag_ingest - INFO - Extraction terminée, 2 pages traitées.
+2025-11-21 11:48:49,861 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:48:54,816 - pdf_rag_ingest - INFO - Modèle d'embeddings texte chargé (CPU)
+2025-11-21 11:48:54,965 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 via HTTP (clé API fournie)
+2025-11-21 11:48:54,966 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:48:55,172 - pdf_rag_ingest - INFO - Collection 'pdf_multimodal' recréée avec succès.
+2025-11-21 11:48:55,172 - pdf_rag_ingest - INFO - Ouverture du PDF: DOCKER/Conditions Spécifiques du contrat d'abonnement  au service Trunk Sip_tagged.pdf
+2025-11-21 11:48:55,186 - pdf_rag_ingest - INFO - Le document contient 2 pages.
+2025-11-21 11:48:55,238 - pdf_rag_ingest - INFO - Page 1 : longueur du texte = 10836 caractères
+2025-11-21 11:55:12,953 - pdf_rag_ingest - INFO - Démarrage de l'ingestion du PDF vers Qdrant
+2025-11-21 11:55:17,817 - pdf_rag_ingest - INFO - Modèle d'embeddings texte chargé (CPU)
+2025-11-21 11:55:17,960 - pdf_rag_ingest - INFO - Connecté à Qdrant localhost:6333 via HTTP (clé API fournie)
+2025-11-21 11:55:17,960 - pdf_rag_ingest - INFO - (Re)création de la collection Qdrant : pdf_multimodal
+2025-11-21 11:55:18,174 - pdf_rag_ingest - INFO - Collection 'pdf_multimodal' recréée avec succès.
+2025-11-21 11:55:18,174 - pdf_rag_ingest - INFO - Ouverture du PDF: DOCKER/Conditions Spécifiques du contrat d'abonnement  au service Trunk Sip_tagged.pdf
+2025-11-21 11:55:18,189 - pdf_rag_ingest - INFO - Le document contient 2 pages.
+2025-11-21 11:55:18,241 - pdf_rag_ingest - INFO - Page 1 : longueur du texte = 10836 caractères

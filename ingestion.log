@@ -1,0 +1,15 @@
+2025-11-21 12:16:52,010 - INFO - Chargement du modèle d'embedding : sentence-transformers/clip-ViT-B-32
+2025-11-21 12:16:52,099 - INFO - Use pytorch device_name: cuda:0
+2025-11-21 12:16:52,099 - INFO - Load pretrained SentenceTransformer: sentence-transformers/clip-ViT-B-32
+2025-11-21 12:16:56,781 - INFO - HTTP Request: GET http://localhost:6333 "HTTP/1.1 200 OK"
+2025-11-21 12:16:56,784 - INFO - HTTP Request: GET http://localhost:6333/collections/rag_multimodal/exists "HTTP/1.1 401 Unauthorized"
+2025-11-21 12:16:56,785 - ERROR - Erreur lors de la création de la collection : Unexpected Response: 401 (Unauthorized)
+Raw response content:
+b'Must provide an API key or an Authorization bearer token'
+2025-11-21 12:18:40,538 - INFO - Chargement du modèle d'embedding : sentence-transformers/clip-ViT-B-32
+2025-11-21 12:18:40,598 - INFO - Use pytorch device_name: cuda:0
+2025-11-21 12:18:40,598 - INFO - Load pretrained SentenceTransformer: sentence-transformers/clip-ViT-B-32
+2025-11-21 12:18:44,145 - ERROR - Erreur lors de la création de la collection : [SSL: WRONG_VERSION_NUMBER] wrong version number (_ssl.c:1016)
+2025-11-21 12:19:20,761 - INFO - Chargement du modèle d'embedding : sentence-transformers/clip-ViT-B-32
+2025-11-21 12:19:20,822 - INFO - Use pytorch device_name: cuda:0
+2025-11-21 12:19:20,823 - INFO - Load pretrained SentenceTransformer: sentence-transformers/clip-ViT-B-32
